@@ -44,18 +44,26 @@ export class HomeComponent implements OnInit {
           (
             () => myObserver.next( "Second Package" )       // Emit the 2nd package after 4 secs
             ,4000 
-          );          
+          );         
+          
+          setTimeout
+          (
+            () => myObserver.next( "3rd Package" )       // Emit the 3rd package after 5 secs
+            ,5000 
+          );
 
           setTimeout
           (
             // () => myObserver.error( "Failed!!!" )        // Emit error after 5 secs
             () => myObserver.complete()                     // Emit complete after 5 secs
-            ,5000 
+            ,7000 
           );          
         }
       );   
 
-      // Observer
+      // ----------------------
+      // Observer / Subscriber
+      // ----------------------
       myObservable.subscribe
       (
         ( data: string ) => { console.log( data ); },       // [KEY]: Called when success
